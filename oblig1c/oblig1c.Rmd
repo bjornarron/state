@@ -1,0 +1,21 @@
+---
+output:
+  pdf_document: default
+  # html_document: default
+---
+# Oblig1c
+
+## Gruppe 8
+Skrevet av Bjørnar Fauske Røn, Andreas Egge Lye og Sverre Kaldestad
+
+### Oppgave 1: lag Rmd fil og kjør denne med Knit
+Det er det vi gjorde for å lage denne pdfen. 
+
+
+### Oppgave 2: R basics
+”Vi har gjort Rbasics” 
+
+### Oppgave 3: 
+```{r}
+print("Hello World!")
+```

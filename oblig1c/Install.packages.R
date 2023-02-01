@@ -2,7 +2,7 @@
 # https://towardsdatascience.com/top-r-libraries-for-data-science-9b24f658e243
 # https://www.computerworld.com/article/2921176/great-r-packages-for-data-import-wrangling-visualization.html
 install.packages("tidyverse")   # Sugar and spice, and everything nice
-##### Installerer du tidyverse, installerer du samtidig disse pakkene: ######
+#### Installerer du tidyverse, installerer du samtidig disse pakkene: ######
 # install.packages("ggplot2")   # visualisering av data: https://homepage.divms.uiowa.edu/~luke/classes/STAT4580/catone.html
 # install.packages("tibble")    # for dataRammer
 # install.packages("readr")     # import av data
