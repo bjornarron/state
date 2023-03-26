@@ -8,14 +8,123 @@ output:
 ## Gruppe 8
 Skrevet av Bjørnar Fauske Røn, Andreas Egge Lye og Sverre Kaldestad
 
-### Oppgave 1: lag Rmd fil og kjør denne med Knit
+
+\section{Oppgave 1: lag Rmd fil og kjør denne med Knit}
 Det er det vi gjorde for å lage denne pdfen. 
+Alt ble skrevet i Rmd filen. 
 
 
-### Oppgave 2: R basics
+\section{Oppgave 2: R basics}
 ”Vi har gjort Rbasics” 
 
-### Oppgave 3: 
+\section{Oppgave 3: }
+
+Ikke gjort
+
+\section{Oppgave 4: }
 ```{r}
-print("Hello World!")
+lengder = read.csv("terning.csv", sep=",")
+lengder
+data <- data.frame(lengder$lengde,lengder$hoyde)
+minY = data$lengder.lengde
+minX = data$lengder.hoyde
+#Plotte alle punktenne
+plot(minX, minY, ylab = "Sprettlengde, cm", xlab = "Dropphøyde, cm")
+model <- lm(minY ~ minX)
+#Plotte regresjonslinjen 
+abline(model, col="red")
+min_summary = summary(model)
+min_summary # Printer ut alpha og beta
+
+
 ```
+
+
+
+
+\section{Oppgave 5:}
+Ikke gjort 
+
+\section{Oppgave 6:}
+Læreboka, kap. 4, oppgave 24:
+
+Oppgave e) er å gi eksempler på de fire trekkene. Det gjør vi fortløpende i oppgavene.
+
+a) Ordnet, med tilbakelegging:
+$n^k = 12^5= 248832$
+
+
+
+(e) Du har en terning som du skal kaste først 1 så 2 og videre til 6. Da er det ordnet med rekkefølgen også tar du opp den samme terningen hele tiden.
+
+
+
+b) Uordnet, med tilbakelegging:
+$\frac{n+k-1}{k} = \frac{12+5-1}{5} = 4368$
+
+
+
+(e) Hvis vi har en mynt som vi skal flippe 4 ganger og få kron 3 ganger. Da har ikke rekkefølgen noe å si, men du trekker opp samme terning 4 ganger
+
+
+
+c) Ordnet, uten tilbakelegging:
+$\frac{n!}{(n-k)!} =\frac{12!}{(12-5)} = 95040$
+
+
+
+
+(e) Trekker seigmen fra en pose og du skal få først en rød, så to gule, uten å legge den tilbake i posen. Da må vi få den riktige rekkefølgen uten tilbakelegging. 
+
+
+d) Uordnet, uten tilbakelegging:
+$\binom{n}{k} =\frac{n!}{(n-k)!} = \binom{12}{5} = \frac{12!}{12-5} = 792$$
+
+
+(e) En dealer deler ut poker kort. Det er 52 kort og hver gang du deler ut, så blir det ett mindre kort. Det har ikke noe å si hvilken rekkefølge du får kortene (hvis ikke dealeren jukser), men heller verdien på kortene du har fått
+
+\section{Oppgave 7:}
+Læreboka, kap. 5, oppgave 6 + "Hva er P(Bc)"
+
+a)
+$P(AUB) = p(A) + P(B) – P(AB)
+= 0,5 + 0,25 – (0,5*0,25)
+= 0,75 – 0,125
+= 0.625$
+
+b)
+$P(A|B) =\frac{P(AB)}{P(B)}
+=\frac{0,125}{0,25}
+= 0,5$
+
+c)
+$P(B|A) = \frac{P(AB)}{P(A)}
+= \frac{0,125}{0,5}
+= 0,25$
+
+d)
+$P(B^c) = (\omega) – P(B)
+= 1 – 0,25 = 0.75$
+
+
+
+
+
+
+
+
+
+\section{Oppgave 8:}
+Læreboka, kap. 5, oppgave 15
+
+
+Oppgaven var og se på en rekkefølge og hva sannsyligheten var for denne rekkefølgen. Rekkefølgen var MMKMKMMMKKKMMMMKKMKMKMMK. Vi ser da at dette er en ordnet rekke med tilbakeleging. Teller videre antal Mer og Ker og får $M=14 og K=10$. Regner da videre med $0.14^14\cdot0.63^10$ som gir en sannsynlighet på $8.876252163\cdot10^-9$.
+
+
+Læreboka, kap. 5, oppgave 16
+
+Denne oppgaven gikk ut på se på hva sanysligheten var for å få 14 mynt når man kaster 37 ganger. Sansynligheten p for mynt er 0.37. Bruker da formlen for uordnet kombinasjon. Får da $\binom{n}{k}\cdot p^k\cdot(1-p)^{n-k}$ får da $\binom{37}{14}0.37^14(1-0.37)^{37-14}=0.1335029514$. Utregning er gjort på kalkualtor. Regnet binominal med nCr funksjonen på casio kalkualtor. 
+
+\section{Total prosent}
+Vi er 3 stk. på gruppå og da skal vi ha 75% av alle oppgavene.
+Med de oppgavene vi gjorde, så fikk vi 90% for å ha noe å gå på, hvis det er noen skrivefeiler elns. 
