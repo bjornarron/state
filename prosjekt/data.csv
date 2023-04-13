@@ -1,81 +1,18 @@
-Linje,Datamskiner,OS
-Softwear,3,1
-Softwear,0,2
-Softwear,1,3
-Softwear,3,1
-Softwear,3,2
-Softwear,2,3
-Softwear,0,1
-Softwear,3,2
-Softwear,2,3
-Softwear,5,1
-Softwear,0,2
-Softwear,2,3
-Softwear,5,1
-Softwear,2,2
-Softwear,3,3
-Softwear,3,1
-Softwear,0,2
-Softwear,3,3
-Softwear,2,1
-Softwear,4,2
-Nettverk,1,3
-Nettverk,2,1
-Nettverk,4,2
-Nettverk,2,3
-Nettverk,1,1
-Nettverk,2,2
-Nettverk,4,3
-Nettverk,5,1
-Nettverk,1,2
-Nettverk,1,3
-Nettverk,4,1
-Nettverk,4,2
-Nettverk,3,3
-Nettverk,4,1
-Nettverk,3,2
-Nettverk,0,Mac
-Nettverk,2,Windows
-Nettverk,1,Linux
-Nettverk,0,Mac
-Nettverk,3,Windows
-Bygg,5,Linux
-Bygg,2,Mac
-Bygg,2,Windows
-Bygg,5,Linux
-Bygg,2,Mac
-Bygg,3,Windows
-Bygg,3,Linux
-Bygg,4,Mac
-Bygg,1,Windows
-Bygg,0,Linux
-Bygg,5,Mac
-Bygg,1,Windows
-Bygg,1,Linux
-Bygg,4,Mac
-Bygg,2,Windows
-Bygg,2,Linux
-Bygg,2,Mac
-Bygg,5,Windows
-Bygg,4,Linux
-Bygg,1,Mac
-AI,4,Windows
-AI,2,Linux
-AI,4,Mac
-AI,4,Windows
-AI,1,Linux
-AI,4,Mac
-AI,2,Windows
-AI,4,Linux
-AI,3,Mac
-AI,1,Windows
-AI,3,Linux
-AI,3,Mac
-AI,1,Windows
-AI,2,Linux
-AI,1,Mac
-AI,4,Windows
-AI,5,Linux
-AI,4,Mac
-AI,5,Windows
-AI,5,Windows
+Tidsmerke,Hvilken linje går du?,Hvor mange timer om dagen bruker du Windows. Svar bare med nummer,Hvor mange timer om dagen bruker du Linux. Svar bare med nummer,Hvor mange timer om dagen bruker du MacOS. Svar bare med nummer,Hvilket operativsystem foretrekker du?,"Hvor mange datamaskiner har du i aktivt bruk? (Bærbar, Stasjonær, Server ...) "
+23.03.2023 kl. 12.19.02,Bygg,7,0,0,Windows,1
+23.03.2023 kl. 12.20.08,Data,7,5,0,Foretrekker ingen,2
+23.03.2023 kl. 12.27.35,Bygg,9,0,0,Windows,1
+23.03.2023 kl. 12.36.28,Bygg,6,0,0,Windows,2
+23.03.2023 kl. 12.38.52,Data,1,3,0,Foretrekker ingen,1
+23.03.2023 kl. 12.51.38,Bygg,8,0,0,Windows,2
+23.03.2023 kl. 12.58.21,Bygg,3,0,3,Windows,2
+23.03.2023 kl. 14.01.44,Bygg,5,0,0,Windows,2
+23.03.2023 kl. 18.12.17,Bygg,6,0,0,Windows,2
+25.03.2023 kl. 14.26.53,Data,6,2,0,Linux,2
+25.03.2023 kl. 17.42.36,Data,10,1,0,Windows,2
+26.03.2023 kl. 17.04.01,Data,5,5,0,Linux,3
+13.04.2023 kl. 10.18.16,Data,7,0,0,Windows,2
+13.04.2023 kl. 10.18.47,Meka,6,0,0,Windows,2
+13.04.2023 kl. 10.19.27,Data,6,0,0,Windows,2
+13.04.2023 kl. 10.21.40,Data,0,8,0,Linux,10
+13.04.2023 kl. 11.22.57,Data,0,12,0,Linux,2
