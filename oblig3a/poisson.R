@@ -1,6 +1,5 @@
 library(datasets)
-bæsj=discoveries
-bæsj
+
 #Histogram
 k=12
 hist(discoveries,breaks=k,ylab = "Hvor mange år som hadde den oppdagelsesraten",
@@ -53,3 +52,5 @@ x10 = round(dnbinom(5,k3,tau3/(tau3+2))*100, 4)
 paste("P (X=5) over to år vil dæ være ", x10, "%")
 # 
 
+k1/tau1
+qgamma(0.5,3,8)

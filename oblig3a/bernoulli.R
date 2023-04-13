@@ -2,7 +2,7 @@ library(extraDistr)
 p=0.349
 b0=0.5
 a0=0.5
-  
+
 x = seq(0,1,0.001)
 y= dbeta(x, a0, b0)
 plot(x,y,type="l")
@@ -48,7 +48,7 @@ opn3 = sqrt(a1n3*b1n3/(((a1n3+b1n3)^2)*(a1n3+b1n3+1)))
 abline(v=epn3,col="green",lwd=1)
 abline(v=epn3-opn3,col="pink",lwd=1)
 abline(v=epn3+opn3,col="blue",lwd=1)
- 
+
 #n4
 n4 = 10000
 k1n4 = rbinom(1, n4, p)
@@ -62,7 +62,6 @@ opn4 = sqrt(a1n4*b1n4/(((a1n4+b1n4)^2)*(a1n4+b1n4+1)))
 abline(v=epn4,col="green",lwd=1)
 abline(v=epn4-opn4,col="pink",lwd=1)
 abline(v=epn4+opn4,col="blue",lwd=1)
-
 
 #7
 plot(x,y1, type='l',col="maroon", ylim = c(0,85))
@@ -94,7 +93,3 @@ bom1 = dbnbinom(3,4,a1n1,b1n1)
 bom2 = dbnbinom(3,4,a1n2,b1n2)
 bom3 = dbnbinom(3,4,a1n3,b1n3)
 bom4 = dbnbinom(3,4,a1n4,b1n4)
-  
-  
-  
-  
