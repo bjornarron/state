@@ -1,55 +1,79 @@
+# Install necessary packages if not already installed
+if (!require(readr)) install.packages("readr")
+if (!require(dplyr)) install.packages("dplyr")
+if (!require(ggplot2)) install.packages("ggplot2")
+if (!require(tidyr)) install.packages("tidyr")
+if (!require(ggtern)) install.packages("ggtern")
+
+
+# Load necessary libraries
+library(readr)
 library(dplyr)
-library(stringr)
-# Vi forutsetter at alle filene ligger i en undermappe
-# til der .Rproj-fila ligger, med navn 3a_nye:
+library(ggplot2)
+library(tidyr)
+library(ggtern)
 
-seigmann_files = list.files(path = "3a_nye/")
-A=str_split(seigmann_files,"_")
-seigmann_df <- data.frame(matrix(unlist(A), ncol=3, byrow=TRUE))
-colnames(seigmann_df) <- c("Type", "Merke", "Gruppe")
-seigmann_df$Gruppe=str_split(seigmann_df$Gruppe, "\\.", simplify = TRUE)[,1]
-seigmann_df$Merke=toupper(seigmann_df$Merke)
-head(seigmann_df)
-seigmann_df$Path=seigmann_files
-Merker = unique(seigmann_df$Merke)
-Merker
-
-k=length(Merker)
-inferens_df <- data.frame(merke=Merker,
-                          n = rep(0,k),
-                          Sx = rep(0,k),
-                          Sxx = rep(0,k)
-                          )
+# Import the data as a dataframe
+data <- read_delim("data.csv", delim = ",", locale = readr::locale(encoding = "UTF-8"))
 
 
-for (merke in Merker) {
-  m = which(Merker==merke)
-  temp_df = filter(seigmann_df,Merke==merke)
-  temp2_df = filter(temp_df,Type=="Raw")
-  for (path in temp2_df$Path) {
-    this_df = read.csv(paste("3a_nye/",path,sep=""))
-    n=dim(this_df)[1]
-    Sx=sum(this_df[,1])
-    Sxx=sum(this_df[,1]^2)
-    Sxx = Sxx + 0.5^2/12  # Fordi nøyaktighet på 5mm
-    inferens_df$n[m] = inferens_df$n[m] + n 
-    inferens_df$Sx[m] = inferens_df$Sx[m] + Sx
-    inferens_df$Sxx[m] = inferens_df$Sxx[m] + Sxx
-  }
-  temp3_df = filter(temp_df,Type=="Table")
-  for (path in temp3_df$Path) {
-    this_df = read.csv(paste("3a_nye/",path,sep=""))
-    n=sum(this_df$Antall)
-    Sx=sum(this_df$Antall*this_df$Midtpunkt)
-    Sxx=sum(this_df$Antall*this_df$Midtpunkt^2)
-    SxB=sum(this_df$Antall*this_df$Bredde^2)/12
-    Sxx = Sxx + SxB
-    inferens_df$n[m] = inferens_df$n[m] + n 
-    inferens_df$Sx[m] = inferens_df$Sx[m] + Sx
-    inferens_df$Sxx[m] = inferens_df$Sxx[m] + Sxx
-  }
-}
 
-inferens_df
-# Nå har dere alt dere trenger for å utføre inferensen.
-# Alle dataene er lest inn og oppsummert!
+# Rename columns
+colnames(data) <- c("Timestamp", "Line", "WindowsHours", "LinuxHours", "MacHours", "PreferredOS", "ComputersInUse")
+
+# Convert Timestamp column to a proper datetime format
+data$Timestamp <- as.POSIXct(data$Timestamp, format = "%d.%m.%Y kl. %H.%M.%S")
+
+# Convert hours columns to numeric format
+data$WindowsHours <- as.numeric(data$WindowsHours)
+data$LinuxHours <- as.numeric(data$LinuxHours)
+data$MacHours <- as.numeric(data$MacHours)
+
+# Convert ComputersInUse column to numeric format
+data$ComputersInUse <- as.numeric(data$ComputersInUse)
+
+
+# Histogram of total hours per day for each operating system
+total_hours <- data %>%
+gather(OperatingSystem, Hours, WindowsHours:MacHours) %>%
+group_by(OperatingSystem) %>%
+summarize(TotalHours = sum(Hours))
+
+ggplot(total_hours, aes(x = OperatingSystem, y = TotalHours, fill = OperatingSystem)) +
+geom_bar(stat = "identity", width = 0.7) +
+theme_minimal() +
+labs(title = "Total hours per day for each operating system", x = "Operating System", y = "Total Hours") +
+theme(legend.position = "none")
+
+# Bar plot of preferred operating systems
+preferred_os <- data %>%
+group_by(PreferredOS) %>%
+summarize(Count = n())
+
+ggplot(preferred_os, aes(x = PreferredOS, y = Count, fill = PreferredOS)) +
+geom_bar(stat = "identity", width = 0.7) +
+theme_minimal() +
+labs(title = "Preferred Operating System", x = "Operating System", y = "Count") +
+theme(legend.position = "none")
+
+# Boxplot of ComputersInUse per line
+ggplot(data, aes(x = Line, y = ComputersInUse, fill = Line)) +
+geom_boxplot() +
+theme_minimal() +
+labs(title = "Computers in use per line", x = "Line", y = "Computers in use") +
+theme(legend.position = "none")
+
+#Dirichlet
+data_normalized <- data %>%
+mutate(TotalHours = WindowsHours + LinuxHours + MacHours) %>%
+mutate(NormWindows = WindowsHours / TotalHours,
+       NormLinux = LinuxHours / TotalHours,
+       NormMac = MacHours / TotalHours)
+ggtern(data_normalized, aes(x = NormWindows, y = NormLinux, z = NormMac)) +
+geom_point(alpha = 0.5) +
+theme_minimal() +
+labs(title = "Dirichlet plot of time allocation for each OS",
+     x = "Windows", y = "Linux", z = "MacOS") +
+theme(legend.position = "none")
+
+
