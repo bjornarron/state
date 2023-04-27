@@ -1,18 +1,94 @@
-Tidsmerke,Hvilken linje går du?,Hvor mange timer om dagen bruker du Windows. Svar bare med nummer,Hvor mange timer om dagen bruker du Linux. Svar bare med nummer,Hvor mange timer om dagen bruker du MacOS. Svar bare med nummer,Hvilket operativsystem foretrekker du?,"Hvor mange datamaskiner har du i aktivt bruk? (Bærbar, Stasjonær, Server ...) "
-23.03.2023 kl. 12.19.02,Bygg,7,0,0,Windows,1
-23.03.2023 kl. 12.20.08,Data,7,5,0,Foretrekker ingen,2
-23.03.2023 kl. 12.27.35,Bygg,9,0,0,Windows,1
-23.03.2023 kl. 12.36.28,Bygg,6,0,0,Windows,2
-23.03.2023 kl. 12.38.52,Data,1,3,0,Foretrekker ingen,1
-23.03.2023 kl. 12.51.38,Bygg,8,0,0,Windows,2
-23.03.2023 kl. 12.58.21,Bygg,3,0,3,Windows,2
-23.03.2023 kl. 14.01.44,Bygg,5,0,0,Windows,2
-23.03.2023 kl. 18.12.17,Bygg,6,0,0,Windows,2
-25.03.2023 kl. 14.26.53,Data,6,2,0,Linux,2
-25.03.2023 kl. 17.42.36,Data,10,1,0,Windows,2
-26.03.2023 kl. 17.04.01,Data,5,5,0,Linux,3
-13.04.2023 kl. 10.18.16,Data,7,0,0,Windows,2
-13.04.2023 kl. 10.18.47,Meka,6,0,0,Windows,2
-13.04.2023 kl. 10.19.27,Data,6,0,0,Windows,2
-13.04.2023 kl. 10.21.40,Data,0,8,0,Linux,10
-13.04.2023 kl. 11.22.57,Data,0,12,0,Linux,2
+Hvilken linje går du?,Hvor mange timer om dagen bruker du Windows. Svar bare med nummer,Hvor mange timer om dagen bruker du Linux. Svar bare med nummer,Hvor mange timer om dagen bruker du MacOS. Svar bare med nummer,Hvilket operativsystem foretrekker du?,"Hvor mange datamaskiner har du i aktivt bruk? (Bærbar, Stasjonær, Server ...) "
+Bygg,7,0,0,Windows,1
+Data,7,5,0,Foretrekker ingen,2
+Bygg,9,0,0,Windows,1
+Bygg,6,0,0,Windows,2
+Data,1,3,0,Foretrekker ingen,1
+Bygg,8,0,0,Windows,2
+Bygg,3,0,3,Windows,2
+Bygg,5,0,0,Windows,2
+Bygg,6,0,0,Windows,2
+Data,6,2,0,Linux,2
+Data,10,0.02,0,Windows,2
+Data,5,5,0,Linux,3
+Data,7,0,0,Windows,2
+Meka,6,0,0,Windows,2
+Data,6,0,0,Windows,2
+Data,0,8,0,Linux,10
+Data,0,12,0,Linux,2
+AI,5,0,0,Windows,1
+Meka,12,0,0,Windows,1
+Data,0,8,0,Linux,2
+Data,13,0.1,0,Windows,2
+Data,0,1,0,Windows,1
+Data,0,9,0,Linux,4
+Data,10,0,0,Windows,2
+Data,0,0,9,Mac,1
+Data,0,14,0,Linux,1
+AI,5,0,0,Windows,1
+Data,9,0,0,Foretrekker ingen,2
+Data,6,0,2,Mac,3
+Data,0.5,10,0,Linux,5
+AI,6,0,0,Windows,2
+Data,8,0,0,Windows,2
+Meka,5,1,0,Windows,1
+Meka,8,0,0,Windows,2
+AI,4,2,0,Foretrekker ingen,1
+AI,0,1,4,Mac,2
+Meka,7,0,0,Windows,3
+Meka,10,0,0,Windows,1
+AI,7,0,0,Foretrekker ingen,1
+Meka,0,0,10,Mac,1
+AI,0,6,1,Linux,2
+Meka,5,0,0,Windows,2
+AI,7,0,0,Windows,1
+AI,8,0,0,Windows,1
+Meka,7,2,0,Foretrekker ingen,2
+AI,3,5,0,Foretrekker ingen,2
+Meka,6,3,0,Foretrekker ingen,2
+Meka,5,2,0,Foretrekker ingen,3
+AI,10,0,0,Windows,1
+Meka,8,1,0,Foretrekker ingen,2
+AI,6,1,0,Windows,2
+Meka,7,1,0,Foretrekker ingen,2
+AI,0,7,1,Linux,2
+Meka,4,4,0,Foretrekker ingen,2
+AI,0,1,7,Mac,1
+AI,7,0,0,Windows,1
+Meka,3,3,0,Windows,2
+AI,2,5,0,Foretrekker ingen,1
+Meka,6,2,0,Windows,2
+AI,1,1,5,Foretrekker ingen,2
+Meka,8,0,0,Windows,1
+Meka,7,0,0,Windows,2
+Data,0,9,0,Linux,3
+AI,10,0,0,Windows,1
+Bygg,1,0,5,Mac,1
+Bygg,6,0,0,Windows,1
+Data,12,0,0,Windows,2
+Bygg,9,0,0,Windows,1
+Data,5,3,0,Foretrekker ingen,2
+Bygg,8,0,0,Foretrekker ingen,1
+Data,0,0,8,Mac,1
+Bygg,8,0,0,Foretrekker ingen,1
+Data,0,2,6,Mac,2
+Data,5,3,0,Foretrekker ingen,2
+Bygg,6,0,0,Foretrekker ingen,1
+Bygg,7,0,0,Windows,1
+Data,9,0,0,Windows,1
+Data,9,0,0,Foretrekker ingen,1
+Data,9,0,0,Windows,2
+Data,7,7,0,Linux,2
+Data,3,0,0,Foretrekker ingen,1
+Data,14,0,0,Windows,2
+Data,7,0,0,Windows,2
+Data,8,0,0,Windows,2
+AI,7,0,0,Foretrekker ingen,1
+Data,5,6,0,Foretrekker ingen,2
+Meka,8,0,0,Windows,1
+Data,0,9,0,Linux,2
+Data,0,5,5,Foretrekker ingen,2
+Data,9,0,0,Windows,2
+Meka,6,0,0,Windows,1
+AI,8,0,0,Windows,1
+Data,6,0.5,0,Windows,1
