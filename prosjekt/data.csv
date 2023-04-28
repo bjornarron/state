@@ -1,4 +1,4 @@
-Hvilken linje går du?,Hvor mange timer om dagen bruker du Windows. Svar bare med nummer,Hvor mange timer om dagen bruker du Linux. Svar bare med nummer,Hvor mange timer om dagen bruker du MacOS. Svar bare med nummer,Hvilket operativsystem foretrekker du?,"Hvor mange datamaskiner har du i aktivt bruk? (Bærbar, Stasjonær, Server ...) "
+linje,timerwin,timerLinux,timerMac,operativsystem,antalldatamaskiner
 Bygg,7,0,0,Windows,1
 Data,7,5,0,Foretrekker ingen,2
 Bygg,9,0,0,Windows,1
