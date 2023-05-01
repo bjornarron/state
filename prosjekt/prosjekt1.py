@@ -16,20 +16,20 @@ m = data['operativsystem'].str.contains("Mac").sum()
 l = data['operativsystem'].str.contains("Linux").sum()
 f = data['operativsystem'].str.contains("Foretrekker ingen").sum()
 
-a1 = a0 + w
-b1 = b0 + m
-c1 = c0 + l
+a1 = a0 + 5#w
+b1 = b0 + 10#m
+c1 = c0 + 10#l
 d1 = d0 + l
 
 alpha = np.array([a1, b1, c1])
 
-sample = dirichlet.rvs(alpha, size=100000)
+sample = dirichlet.rvs(alpha, size=1000)
 df = pd.DataFrame(sample, columns=["V1", "V2", "V3"])
 
 labels = pd.DataFrame({
     "x": [1, 0, 0],
     "y": [0, 0, 1],
-    "label": ["Windows", "Mac", "Linux"]
+    "label": ["Windows", "Linux", "Mac"]
 })
 
 fig, ax = plt.subplots()
@@ -46,6 +46,22 @@ ax.scatter(triangle_center[0], triangle_center[1], color='blue')
 
 for index, row in labels.iterrows():
     ax.text(row['x'], row['y'], row['label'], fontsize=12, color='red')
+    
+
+
+n_students = 1
+pred_prob_windows = dirichlet.mean(alpha)[0] ** n_students
+
+print(f"Predictive probability of 20 students preferring Windows: {pred_prob_windows:.6f}")
+# Compute the 5th and 95th percentiles of the samples
+lower = np.percentile(sample, 5, axis=0)
+upper = np.percentile(sample, 95, axis=0)
+
+# Display the interval estimate
+print("Interval Estimate (90%):")
+print("Windows: [{:.3f}, {:.3f}]".format(lower[0], upper[0]))
+print("Mac: [{:.3f}, {:.3f}]".format(lower[1], upper[1]))
+print("Linux: [{:.3f}, {:.3f}]".format(lower[2], upper[2]))
 
 ax.set_title("Dirichlet Distribution")
 ax.set_xlim(0, 1)

@@ -1,31 +1,58 @@
-library(readr)
-library(ggplot2)
-library(extraDistr)
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import dirichlet
+from mpl_toolkits.mplot3d import Axes3D
 
-data <- read_csv("data_bare_forventet.csv")
+def dirichlet_pdf(x, alpha):
+    from scipy.special import gamma
+    from functools import reduce
+    import operator
 
-os_count <- table(data$operativsystem)
-os_count_normalized <- os_count / sum(os_count)
+    coef = gamma(np.sum(alpha)) / reduce(operator.mul, [gamma(a) for a in alpha])
+    pdf = coef * np.prod([x_i ** (a - 1) for x_i, a in zip(x, alpha)])
 
-alpha <- 1 # endre denne verdien for å påvirke konsentrasjonen av fordelingen
-dirichlet_params <- alpha * os_count_normalized
+    return pdf
 
-samples <- 1000 # endre dette tallet for å øke eller redusere antall prøver
-dirichlet_samples <- rdirichlet(samples, dirichlet_params)
+data = pd.read_csv("data.csv")
 
-# Konverter Dirichlet-prøver til et datafremme for ggplot
-dirichlet_df <- data.frame(t(dirichlet_samples))
-colnames(dirichlet_df) <- names(os_count)
+a0 = 0
+b0 = 0
+c0 = 0
+d0 = 0
 
-# Forbered data for visualisering
-melted_dirichlet_df <- reshape2::melt(dirichlet_df, variable.name = "OS", value.name = "Frequency")
+w = data['operativsystem'].str.contains("Windows").sum()
+m = data['operativsystem'].str.contains("Mac").sum()
+l = data['operativsystem'].str.contains("Linux").sum()
+f = data['operativsystem'].str.contains("Foretrekker ingen").sum()
 
-# Visualiser Dirichlet-fordelingen
-ggplot(melted_dirichlet_df, aes(x = OS, y = Frequency)) +
-  geom_boxplot() +
-  labs(title = "Dirichlet Distribution of Operating Systems", x = "Operating System", y = "Frequency") +
-  theme_minimal()
+a1 = a0 + 10 #w
+b1 = b0 + 10 #m
+c1 = c0 + 10 #l
+d1 = d0 + 10 #l
 
-mode_os <- names(os_count)[which.max(os_count)]
-mode_os
+alpha = np.array([a1, b1, c1])
 
+n_points = 100
+x = np.linspace(0, 1, n_points)
+z = np.linspace(0, 1, n_points)
+X, Z = np.meshgrid(x, z)
+
+Y = np.zeros((n_points, n_points))
+for i in range(n_points):
+    for j in range(n_points):
+        prob = np.array([X[i, j], Z[i, j], 1 - X[i, j] - Z[i, j]])
+        if np.all(prob >= 0) and np.all(prob <= 1):
+            Y[i, j] = dirichlet_pdf(prob, alpha)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+ax.plot_surface(X, Z, Y, cmap='viridis', alpha=0.7)
+
+ax.set_xlabel('Windows')
+ax.set_ylabel('Mac')
+ax.set_zlabel('Probability Density')
+
+ax.set_title("3D Dirichlet Distribution: Probability Density of Operating Systems")
+plt.show()
