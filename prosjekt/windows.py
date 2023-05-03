@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import scipy.stats as stats
 n = 0
 windows_hours = 0
 linux_hours = 0
