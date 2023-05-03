@@ -86,13 +86,56 @@ l_C_0 <- 0
 l_k_1 <- l_k_0 + linux_n
 l_sum_1 <- l_sum_0 + linux_hours
 l_v_1 <- l_v_0 + linux_n
-l_C_1 <- l_C_0
+l_C_1 <- l_C_0 + linux_hours_2
 
-sig = 0.05
-hyp = 7
+l_m1 <- l_sum_1/l_k_1
+l_SS_1 <- l_C_1 - l_k_1*l_m1*l_m1
+l_s_1_opphyd <- l_SS_1/(l_v_1)
+l_s_1<- sqrt(l_s_1_opphyd)
 
-pt.scaled(hyp,w_v_1,w_m1,w_s_1*(sqrt(1/w_k_1)))
 
+m_k_0 <- 0
+m_sum_0 <- 0
+m_v_0 <- -1
+m_C_0 <- 0
+
+m_k_1 <- m_k_0 + mac_n
+m_sum_1 <- m_sum_0 + mac_hours
+m_v_1 <- m_v_0 + mac_n
+m_C_1 <- m_C_0 + mac_hours_2
+
+
+m_m1 <- m_sum_1/m_k_1
+m_SS_1 <- m_C_1 - m_k_1*m_m1*m_m1
+m_s_1_opphyd <- m_SS_1/(m_v_1)
+m_s_1<- sqrt(m_s_1_opphyd)
+
+cat("Hypotese timer bruk over 7 timer på alle os")
+sig <- 0.05
+hyp <- 3
+
+w_hyp<-pt.scaled(hyp,w_v_1,w_m1,w_s_1*(sqrt(1/w_k_1)))
+l_hyp<-pt.scaled(hyp,l_v_1,l_m1,l_s_1*(sqrt(1/l_k_1)))
+m_hyp<-pt.scaled(hyp,m_v_1,m_m1,m_s_1*(sqrt(1/m_k_1)))
+
+
+if (w_hyp > sig){
+  cat("windows: forkaster H1 for H0 fordi P(H0)<signifikans")
+} else {
+  cat("windows: Beholder H1 fordi P(H0)>alpha")
+}
+
+if (l_hyp > sig){
+  cat("linux: forkaster H1 for H0 fordi P(H0)<signifikans")
+} else {
+  cat("linux: Beholder H1 fordi P(H0)>alpha")
+}
+
+if (m_hyp > sig){
+  cat("mac: forkaster H1 for H0 fordi P(H0)<signifikans")
+} else {
+  cat("mac: Beholder H1 fordi P(H0)>alpha")
+}
 
 
 
