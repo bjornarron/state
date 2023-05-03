@@ -16,14 +16,14 @@ m = data['operativsystem'].str.contains("Mac").sum()
 l = data['operativsystem'].str.contains("Linux").sum()
 f = data['operativsystem'].str.contains("Foretrekker ingen").sum()
 
-a1 = a0 + 5#w
-b1 = b0 + 10#m
-c1 = c0 + 10#l
+a1 = a0 + w
+b1 = b0 + m
+c1 = c0 + l
 d1 = d0 + l
 
 alpha = np.array([a1, b1, c1])
 
-sample = dirichlet.rvs(alpha, size=1000)
+sample = dirichlet.rvs(alpha, size=10000)
 df = pd.DataFrame(sample, columns=["V1", "V2", "V3"])
 
 labels = pd.DataFrame({
